@@ -12,7 +12,17 @@ const {
 const {
   createCanvas,
   loadImage,
+  GlobalFonts,
 } = require("@napi-rs/canvas");
+
+GlobalFonts.registerFromPath(
+  `${__dirname}/assets/fonts/Poppins-Regular.ttf`,
+  "Poppins"
+);
+GlobalFonts.registerFromPath(
+  `${__dirname}/assets/fonts/Poppins-Bold.ttf`,
+  "Poppins"
+);
 
 const client = new Client({
   intents: [
@@ -111,7 +121,7 @@ ctx.shadowBlur = 50;
   ctx.stroke();
 
   // Welcome
-  ctx.font = "bold 64px Arial";
+  ctx.font = "bold 64px Poppins";
   ctx.fillStyle = "#60a5fa";
   ctx.shadowColor = "#3b82f6";
 ctx.shadowBlur = 30;
@@ -119,12 +129,12 @@ ctx.shadowBlur = 30;
   ctx.shadowBlur = 0;
 
   // Username
-  ctx.font = "bold 48px Arial";
+  ctx.font = "bold 48px Poppins";
   ctx.fillStyle = "#ffffff";
   ctx.fillText(member.displayName, 80, 230);
 
   // Member Count
-  ctx.font = "28px Arial";
+  ctx.font = "28px Poppins";
   ctx.fillStyle = "#9ca3af";
   ctx.fillText(
     `Member #${member.guild.memberCount}`,
@@ -133,7 +143,7 @@ ctx.shadowBlur = 30;
   );
 
   // Server Name
-  ctx.font = "28px Arial";
+  ctx.font = "28px Poppins";
   ctx.fillStyle = "#ffffff";
   ctx.fillText(
     member.guild.name,
@@ -142,7 +152,7 @@ ctx.shadowBlur = 30;
   );
 
   // Petit texte
-  ctx.font = "22px Arial";
+  ctx.font = "22px Poppins";
   ctx.fillStyle = "#6b7280";
   ctx.fillText(
     "We're happy to have you here!",
@@ -175,11 +185,11 @@ ctx.fillStyle = "#2563eb";
 ctx.roundRect(720, 70, 180, 45, 15);
 ctx.fill();
 
-ctx.font = "bold 22px Arial";
+ctx.font = "bold 22px Poppins";
 ctx.fillStyle = "#ffffff";
 ctx.fillText("NEW MEMBER", 748, 100);
 
-ctx.font = "20px Arial";
+ctx.font = "20px Poppins";
 ctx.fillStyle = "#6b7280";
 
 ctx.fillText(
