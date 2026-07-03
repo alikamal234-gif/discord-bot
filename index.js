@@ -1,5 +1,8 @@
 require("dotenv").config();
+const express = require("express");
 
+const app = express();
+const PORT = process.env.PORT || 3000;
 const {
   Client,
   GatewayIntentBits,
@@ -198,5 +201,12 @@ ctx.fillText(
     files: [attachment],
   });
 
+});
+app.get("/", (req, res) => {
+  res.send("Discord Bot is running!");
+});
+
+app.listen(PORT, () => {
+  console.log(`🌐 Web server running on port ${PORT}`);
 });
 client.login(process.env.TOKEN);
